@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Creative Portfolio
+
+Modern Next.js portfolio for Sandeep Kumar with AI-themed sections, animated 3D-style visuals, Framer Motion interactions, and a working contact form endpoint.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the local URL shown in the terminal, usually `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Contact Form Setup
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The contact form posts to `app/api/contact/route.ts` and sends email through Resend.
 
-## Learn More
+Create `.env.local` in this folder:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+RESEND_API_KEY=re_your_api_key_here
+CONTACT_TO_EMAIL=your-email@example.com
+CONTACT_FROM_EMAIL="Sandeep Portfolio <onboarding@resend.dev>"
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use `CONTACT_TO_EMAIL` for the inbox where you want to receive messages. For production, replace `CONTACT_FROM_EMAIL` with a verified sender/domain from your Resend account.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After changing environment variables, restart the dev server.
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+```
